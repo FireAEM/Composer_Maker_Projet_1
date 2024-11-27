@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <div class="travelListContainer">
+        <h1>Nos destinations phares</h1>
+        <div class="travelList">
+            {% for destination in destinations %}
+                <div class="travelItem">
+                    <img src="{{ asset('image/' ~ destination.image) }}" alt="{{ destination.name }} image">
+                    <h2>{{ destination.name }}</h2>
+                    <p>{{ destination.description }}</p>
+                    <a href="{{ path('destination_detail', { 'id': destination.id }) }}">En savoir plus</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="valuesContainer">
+        <div class="valuesInfo">
+            <h1>Nos valeurs</h1>
+            <p>T-Travel est une agence de voyage dédiée à offrir des expériences de voyage exceptionnelles. Nos valeurs fondamentales définissent qui nous sommes et comment nous travaillons pour assurer votre satisfaction.</p>
+        </div>
+        <div class="valuesGrid">
+            <div class="valueItem">
+                <img src="{{ asset('image/innovation.png') }}" alt="Valeur 1">
+                <p>Innovation</p>
+            </div>
+            <div class="valueItem">
+                <img src="{{ asset('image/satisfaction.png') }}" alt="Valeur 2">
+                <p>Satisfaction</p>
+            </div>
+            <div class="valueItem">
+                <img src="{{ asset('image/durabilite.png') }}" alt="Valeur 3">
+                <p>Durabilité</p>
+            </div>
+            <div class="valueItem">
+                <img src="{{ asset('image/excellence.png') }}" alt="Valeur 4">
+                <p>Excellence</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

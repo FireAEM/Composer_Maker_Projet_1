@@ -1,0 +1,13 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+home:
+    path: /
+    controller: App\Controller\HomeController::index
+
+destination_detail:
+    path: /destination/{id}
+    controller: App\Controller\DestinationController::show

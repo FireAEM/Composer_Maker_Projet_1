@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<head>
+    <title>{% block title %}Agence de Voyage{% endblock %}</title>
+    <meta charset="utf-8">
+    <link rel="icon" href="{{ asset('image/logo.png') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+</head>
+<body>
+    <header>
+        <a href="{{ path('home') }}">
+            <img src="{{ asset('image/logo.png') }}" alt="T-Travel Logo" class="headerLogo">
+        </a>
+        <nav>
+            <a href="{{ path('home') }}">Accueil</a>
+        </nav>
+        <div class="headerSearch">
+            <input type="text" placeholder="Rechercher une destination...">
+            <img src="{{ asset('image/search.png') }}" alt="Search Icon">
+        </div>
+    </header>
+
+    <main>
+        {% block body %}{% endblock %}
+
+        <div class="contactContainer">
+            <div class="contactInfo">
+                <h1>Contactez-nous</h1>
+                <p>📞 Téléphone : <a href="tel:0123456789">0123456789</a> </p>
+                <p>✉️ Email : <a href="mailto:contact@example.com">contact@t-travel.com</a> </p>
+            </div>
+            <form action="#" method="post" class="contactForm">
+                <div class="formGroup">
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
+
+                <div class="formGroup">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" id="prenom" name="prenom" required>
+                </div>
+
+                <div class="formGroup">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="formGroup">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" cols="50" required></textarea>
+                </div>
+
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footerLogo">
+            <img src="{{ asset('image/logo.png') }}" alt="T-Travel">
+            <span>T-Travel</span>
+        </div>
+        <p>&copy; T-Travel 2024</p>
+    </footer>
+</body>
+</html>
+
+
+{# <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        {% block stylesheets %}
+        {% endblock %}
+
+        {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html> #}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail de la destination{% endblock %}
+
+{% block body %}
+    <div class="travelDetailsWrapper">
+        <div class="travelDetailsInfo">
+            <div class="travelDetailsSection">
+                <h1>{{ destination.name }}</h1>
+                <p>{{ destination.description }}</p>
+            </div>
+            <div class="travelDetailsSection">
+                <h2>🧭 Activités</h2>
+                <p>{{ destination.activities }}</p>
+            </div>
+            <div class="travelDetailsSection">
+                <h2>⭐ Points d'intérêt</h2>
+                <p>{{ destination.points_of_interest }}</p>
+            </div>
+        </div>
+        <div class="travelDetailsGallery">
+            <h2>📷 Galerie d'images</h2>
+            <div class="gallery">
+                {% for image in destination.images %}
+                    <img src="{{ image.src }}" alt="{{ image.alt }}">
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="travelDetailsMap">
+        <h2>🗺️ Carte</h2>
+        <iframe
+            width="100%"
+            height="400"
+            frameborder="0"
+            style="border:0"
+            src="https://www.google.com/maps?q={{ destination.coordinates.lat }},{{ destination.coordinates.lng }}&hl=es;z=14&output=embed"
+            allowfullscreen>
+        </iframe>
+    </div>
+{% endblock %}
